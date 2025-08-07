@@ -75,14 +75,13 @@ WSGI_APPLICATION = 'inspecciones_rutinarias.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nombre_db',
-        'USER': 'usuario',
-        'PASSWORD': 'contraseña',
-        'HOST': 'host',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432',
     }
 }
-
 
 
 # Password validation
@@ -133,3 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Ejecutar migraciones automáticamente en producción (Render)
+if os.environ.get('RENDER'):
+    from django.core.management import call_command
+    call_command('migrate')
+    call_command('collectstatic', interactive=False)
