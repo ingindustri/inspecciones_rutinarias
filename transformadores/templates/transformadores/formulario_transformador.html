@@ -1,0 +1,22 @@
+{% extends 'transformadores/base.html' %}
+{% block title %}Formulario de Transformador{% endblock %}
+{% block content %}
+<h2 class="text-center">Formulario de Inspección de Transformador</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="mb-3">
+            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div class="text-danger small">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'menu_transformadores' %}" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}
+
+
+

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sistema-de-inspecciones-django
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn inspecciones_rutinarias.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: inspecciones_rutinarias.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"

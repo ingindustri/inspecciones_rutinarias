@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Sistema de Inspecciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{% static 'img/hero.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+        .fondo-blanco {
+            background-color: rgba(247, 242, 242, 0.99);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(236, 227, 227, 0.99);
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-center fondo-blanco">
+            <h1 class="mb-4">Sistema de Inspecciones Eléctricas</h1>
+
+            <div class="opcion-inspeccion d-flex align-items-center mb-3">
+                <img src="{% static 'img/logo.png' %}" alt="Transformador" style="width: 40px; height: auto; margin-right: 15px;">
+                <a href="{% url 'menu_transformadores' %}" class="btn btn-primary btn-lg flex-grow-1 text-start">
+                    Inspección de Transformadores
+                </a>
+            </div>
+
+            <div class="opcion-inspeccion d-flex align-items-center">
+                <img src="{% static 'img/torre.png' %}" alt="Torre" style="width: 40px; height: auto; margin-right: 15px;">
+                <a href="{% url 'menu_lineas' %}" class="btn btn-success btn-lg flex-grow-1 text-start">
+                Inspección de Líneas de Transmisión
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+

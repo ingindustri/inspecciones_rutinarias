@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>¡Registro de línea guardado correctamente!</h2>
+<a href="{% url 'formulario_linea' %}" class="btn btn-success">Registrar otra</a>
+<a href="{% url 'descargar_excel_lineas' %}" class="btn btn-primary">Descargar Excel</a>
+<a href="{% url 'menu_lineas' %}" class="btn btn-secondary">Inicio</a>
+{% endblock %}
