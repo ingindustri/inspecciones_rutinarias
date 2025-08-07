@@ -14,3 +14,8 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inspecciones_rutinarias.settings')
 
 application = get_wsgi_application()
+
+if os.environ.get('RENDER'):
+    from django.core.management import call_command
+    call_command('migrate')
+    call_command('collectstatic', interactive=False)
