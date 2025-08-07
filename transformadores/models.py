@@ -32,5 +32,5 @@ class InspeccionTransformador(models.Model):
     numero_de_operaciones_del_cambiador_de_taps= models.CharField(max_length=20, default='-')
     estado_de_pararrayos= models.CharField(max_length=20, default='-')
     contador_de_descarga_de_pararrayos= models.CharField(max_length=20, default='-')
-    estado_general = models.CharField(max_length=100)
+    estado_general = models.CharField(max_length=20)
     observaciones = models.TextField()

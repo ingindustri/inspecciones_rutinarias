@@ -3,12 +3,12 @@ from django.db import models
 OPCIONES_ESTADO = [
     ('C', 'Correctivo'),
     ('P', 'Preventivo'),
-    ('-', 'No requiere mantenimiento'),
+    ('N/M', 'No requiere mantenimiento'),
 ]
 
 class InspeccionLinea(models.Model):
     linea_transmision = models.CharField(max_length=20)
-    terna = models.CharField(max_length=50,default='-')
+    terna = models.CharField(max_length=10,default='-')
     fecha = models.DateField()
     numero_torre = models.CharField(max_length=20, default='-')
     pintura = models.CharField(max_length=20, choices=OPCIONES_ESTADO, default='-')
